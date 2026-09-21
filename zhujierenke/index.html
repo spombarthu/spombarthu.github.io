@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="竹节人课堂笔记：为您整理《竹节人》课文的核心知识点、生字词解析、段落大意及中心思想。提供结构化的思维导图和阅读理解技巧，帮助学生高效掌握这篇经典课文。">
+    <meta name="keywords" content="竹节人课堂笔记,竹节人,语文课文笔记,阅读理解,中心思想,生字词">
+    <title>竹节人课堂笔记-课文重点解析与阅读理解指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-text: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* 主要内容区 */
+        main {
+            padding: 2rem 0;
+        }
+
+        /* 章节通用样式 */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* 生字词卡片网格 */
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .word-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .word-char {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .word-pinyin {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 0.5rem;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        .word-meaning {
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        /* 课文结构大纲 */
+        .outline-list {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .outline-item {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .outline-item::before {
+            content: attr(data-num);
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .outline-content {
+            font-weight: 500;
+        }
+
+        .outline-sub {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-left: 1.5rem;
+            margin-top: 0.25rem;
+        }
+
+        /* 重点段落赏析 */
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .analysis-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+        }
+
+        .analysis-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .analysis-text {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eef2f7;
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* 中心思想与写作手法 */
+        .concept-box {
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-top: 1rem;
+        }
+
+        .concept-title {
+            color: #f57f17;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 常见问题 FAQ */
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+            background: #fff;
+        }
+
+        .faq-question:hover {
+            background: #f8f9fa;
+        }
+
+        .faq-answer {
+            padding: 0 1.25rem 1.25rem 1.25rem;
+            color: var(--light-text);
+            display: none;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                display: none; /* 简化移动端展示 */
+            }
+
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .word-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                竹节人课堂笔记
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#words">生字词</a></li>
+                    <li><a href="#structure">课文结构</a></li>
+                    <li><a href="#analysis">重点赏析</a></li>
+                    <li><a href="#ideas">中心思想</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>竹节人课堂笔记</h1>
+            <p>深度解析《竹节人》课文精髓，涵盖生字词、段落大意、中心思想及写作手法，助您高效掌握经典课文。</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- 生字词板块 -->
+        <section id="words">
+            <h2 class="section-title">一、生字词解析</h2>
+            <div class="word-grid">
+                <div class="word-card">
+                    <span class="word-char">磕</span>
+                    <span class="word-pinyin">kē</span>
+                    <p class="word-meaning">本课指竹节人头部或身体撞击地面的声音，也指竹节人之间的碰撞。</p>
+                </div>
+                <div class="word-card">
+                    <span class="word-char">凛冽</span>
+                    <span class="word-pinyin">lǐn liè</span>
+                    <p class="word-meaning">形容寒风刺骨，非常寒冷。文中形容竹节人制作时的粗糙和手感的坚硬。</p>
+                </div>
+                <div class="word-card">
+                    <span class="word-char">威风</span>
+                    <span class="word-pinyin">wēi fēng</span>
+                    <p class="word-meaning">使人敬畏的声势和气派。形容竹节人在玩耍时神气十足的样子。</p>
+                </div>
+                <div class="word-card">
+                    <span class="word-char">沮丧</span>
+                    <span class="word-pinyin">jǔ sàng</span>
+                    <p class="word-meaning">灰心失望。文中指竹节人输了比赛后垂头丧气的样子，也指老师没收玩具时的情绪。</p>
+                </div>
+                <div class="word-card">
+                    <span class="word-char">忐忑</span>
+                    <span class="word-pinyin">tǎn tè</span>
+                    <p class="word-meaning">心神不定。文中形容同学们担心老师没收玩具时的心理状态。</p>
+                </div>
+                <div class="word-card">
+                    <span class="word-char">霹雳</span>
+                    <span class="word-pinyin">pī lì</span>
+                    <p class="word-meaning">暴雷，比喻突然发生的事情或巨大的声响。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 课文结构板块 -->
+        <section id="structure">
+            <h2 class="section-title">二、课文结构与段落大意</h2>
+            <div class="outline-list">
+                <div class="outline-item" data-num="1">
+                    <div class="outline-content">制作竹节人</div>
+                    <div class="outline-sub">选取材料、制作过程、组装特点。</div>
+                </div>
+                <div class="outline-item" data-num="2">
+                    <div class="outline-content">玩耍竹节人</div>
+                    <div class="outline-sub">玩法介绍（拴线、对战）、同学们的痴迷与欢乐。</div>
+                </div>
+                <div class="outline-item" data-num="3">
+                    <div class="outline-content">老师没收与复得</div>
+                    <div class="outline-sub">老师没收玩具引发冲突，最终通过老师自己玩耍化解。</div>
+                </div>
+                <div class="outline-item" data-num="4">
+                    <div class="outline-content">拓展延伸</div>
+                    <div class="outline-sub">对童年游戏的怀念，对传统文化的思考。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 重点段落赏析板块 -->
+        <section id="analysis">
+            <h2 class="section-title">三、重点段落与修辞赏析</h2>
+            <div class="analysis-grid">
+                <div class="analysis-card">
+                    <h3>精彩描写赏析</h3>
+                    <p class="analysis-text">
+                        <span class="tag">动作描写</span>
+                        文中描写竹节人打仗的段落非常生动，如“线一拽，那竹节人便站了起来，双手握刀，像个威风凛凛的大将军。”通过对拴线动作和竹节人姿态的细致刻画，让读者仿佛身临其境，感受到了游戏的刺激与快乐。
+                    </p>
+                    <br>
+                    <p class="analysis-text">
+                        <span class="tag">侧面烘托</span>
+                        作者通过描写同学们对竹节人的痴迷——“课桌上到处都是竹节人，往桌肚里一塞，各人便各奔东西，找各自要好的同学玩去”，侧面烘托出竹节人游戏的巨大魅力，以及它带给孩子们无尽的童年乐趣。
+                    </p>
+                </div>
+                <div class="analysis-card">
+                    <h3>语言风格特点</h3>
+                    <p class="analysis-text">
+                        <span class="tag">口语化</span>
+                        文章语言平实、自然，充满了生活气息。特别是描写同学们玩耍时的对话和神态，使用了大量儿童化的语言，读起来亲切自然，真实还原了那个年代的童年生活场景。
+                    </p>
+                    <br>
+                    <p class="analysis-text">
+                        <span class="tag">幽默风趣</span>
+                        文中不仅描写了竹节人的威风，也描写了它的“惨状”。例如描写竹节人断手断脚时的滑稽模样，以及同学们对它的调侃，使文章在叙述中带有浓厚的幽默感。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 中心思想板块 -->
+        <section id="ideas">
+            <h2 class="section-title">四、中心思想与写作手法</h2>
+            <div class="concept-box">
+                <div class="concept-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    中心思想
+                </div>
+                <p>本文通过记叙“我”和同学们制作、玩耍竹节人的过程，以及老师没收竹节人又复得的故事，表达了对童年游戏的怀念，以及对传统玩具魅力的赞美。文章展现了孩子们在游戏中获得的快乐和智慧，以及老师从严厉到理解的教育方式的转变。</p>
+                
+                <div class="concept-title" style="margin-top: 1.5rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    写作手法
+                </div>
+                <ul style="margin-left: 1.5rem; color: #555;">
+                    <li><strong>详略得当：</strong> 对制作和玩耍过程描写得详细生动，对老师没收玩具的过程描写得相对简练，重点突出。</li>
+                    <li><strong>正面描写与侧面描写结合：</strong> 既描写了竹节人的外观和动作，也描写了同学们的反应，增强了文章的感染力。</li>
+                    <li><strong>借物喻人/托物言志：</strong> 竹节人不仅仅是一个玩具，它象征着顽强的生命力和不屈的斗志，寄托了作者对童年的美好回忆。</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 常见问题 FAQ -->
+        <section id="faq">
+            <h2 class="section-title">五、常见问题 (FAQ)</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    竹节人这个玩具是怎么做出来的？
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>竹节人通常是用废旧毛笔杆或竹子制成的。制作过程包括将竹子锯成一段段长短一致的竹节，在关节处钻孔，然后用棉线穿过孔洞连接各个竹节，最后在头部安上刀剑等装饰物。通过拉动连接的线，可以让竹节人做出各种动作。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    老师为什么最后又把竹节人还给了同学们？
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>老师后来自己也玩起了竹节人，并且玩得很投入。这表明老师从严厉的管教者变成了一个懂得欣赏童趣、理解孩子心理的人。老师通过参与游戏，感受到了竹节人带来的乐趣，因此决定把玩具还给同学们，同时也体现了师生关系的融洽。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    课文表达了作者怎样的情感？
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>课文表达了作者对童年美好时光的深深眷恋，对那些简单却充满乐趣的玩具的喜爱。同时也表达了对传统文化中蕴含的生活智慧的赞赏，以及对自由、快乐童年的向往。</p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 竹节人课堂笔记 - 专注语文课文解析与学习辅助</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">本页面仅供学习交流使用，内容整理自公开课文资料。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的FAQ手风琴交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他已打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项的状态
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
