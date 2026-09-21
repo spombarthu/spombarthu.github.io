@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="青岛开发区房产信息网提供青岛西海岸新区最新房产资讯、楼盘信息、房价走势、二手房交易指南及租房服务。致力于打造本地化、权威、透明的房地产信息服务平台。">
+    <meta name="keywords" content="青岛开发区房产信息网, 西海岸新区房产, 黄岛买房, 青岛二手房, 青岛租房, 青岛房产网">
+    <title>青岛开发区房产信息网 - 西海岸新区房产资讯与交易服务平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #00a8e8;
+            --accent-color: #f39c12;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f5f7fa;
+            --bg-white: #ffffff;
+            --border-color: #e1e4e8;
+            --container-width: 1200px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-top {
+            background-color: #f8f9fa;
+            font-size: 12px;
+            color: var(--text-gray);
+            padding: 6px 0;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-md) 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            margin-left: 8px;
+            font-size: 14px;
+            color: var(--text-gray);
+            font-weight: normal;
+        }
+
+        .search-bar {
+            display: flex;
+            flex: 1;
+            max-width: 500px;
+            margin: 0 var(--spacing-lg);
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-bar button {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #004494;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        /* Banner */
+        .banner {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, #0056b3 0%, #00a8e8 100%);
+            overflow: hidden;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+            width: 100%;
+        }
+
+        .banner h2 {
+            font-size: 36px;
+            margin-bottom: var(--spacing-sm);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .banner p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Stats */
+        .stats-bar {
+            background: white;
+            padding: var(--spacing-lg) 0;
+            margin-bottom: var(--spacing-lg);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        .stat-item p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Section Styling */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-dark);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .section-more {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .section-more a {
+            color: var(--secondary-color);
+        }
+
+        /* Property Cards */
+        .property-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .property-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: var(--spacing-md);
+            display: flex;
+            gap: var(--spacing-md);
+            transition: box-shadow 0.2s;
+        }
+
+        .property-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .property-img {
+            width: 240px;
+            height: 180px;
+            background-color: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .property-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .property-info {
+            flex: 1;
+        }
+
+        .property-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-dark);
+        }
+
+        .property-title a:hover {
+            color: var(--primary-color);
+        }
+
+        .property-tags {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #e6f7ff;
+            color: var(--primary-color);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-right: 4px;
+        }
+
+        .property-desc {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin-bottom: var(--spacing-sm);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .property-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .price {
+            font-size: 20px;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .price small {
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .price-rank-list {
+            counter-reset: rank;
+        }
+
+        .price-rank-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .price-rank-item:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background-color: #eee;
+            color: #666;
+            text-align: center;
+            line-height: 24px;
+            border-radius: 50%;
+            font-size: 12px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .price-rank-item:nth-child(1) .rank-num { background-color: #ff4d4f; color: white; }
+        .price-rank-item:nth-child(2) .rank-num { background-color: #ff7a45; color: white; }
+        .price-rank-item:nth-child(3) .rank-num { background-color: #ffa940; color: white; }
+
+        .rank-info {
+            flex: 1;
+        }
+
+        .rank-title {
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .rank-price {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .rank-price span {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .news-item {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .news-item img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: var(--spacing-md);
+        }
+
+        .news-title {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.4;
+        }
+
+        .news-title a:hover {
+            color: var(--primary-color);
+        }
+
+        .news-date {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        /* Districts */
+        .district-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .district-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: var(--spacing-md);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .district-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--secondary-color);
+        }
+
+        .district-icon {
+            font-size: 32px;
+            margin-bottom: var(--spacing-sm);
+            color: var(--secondary-color);
+        }
+
+        .district-name {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .district-sub {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: var(--spacing-xl) 0 var(--spacing-md);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: var(--spacing-md);
+            font-size: 16px;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #34495e;
+            padding-top: var(--spacing-md);
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                order: -1; /* Move search to top on mobile */
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-main {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+            .search-bar {
+                width: 100%;
+                margin: 0;
+            }
+            .nav-menu {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .district-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .property-card {
+                flex-direction: column;
+            }
+            .property-img {
+                width: 100%;
+                height: 200px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <span>欢迎访问青岛开发区房产信息网，为您提供最权威的房产资讯与数据服务</span>
+                <div class="header-links">
+                    <a href="#">设为首页</a> | <a href="#">收藏本站</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main container">
+            <a href="#" class="logo">
+                青岛开发区房产信息网
+                <span>Qingdao District Real Estate</span>
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="请输入小区名称、楼盘或区域...">
+                <button type="button">搜索</button>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">新房资讯</a>
+                <a href="#">二手房</a>
+                <a href="#">租房信息</a>
+                <a href="#">房价走势</a>
+                <a href="#">政策法规</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <div class="banner">
+        <div class="banner-content">
+            <h2>西海岸新区 · 智慧房产</h2>
+            <p>连接您与理想家园的桥梁，全方位服务青岛开发区房产交易</p>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>2,845</h3>
+                    <p>今日在售房源</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15,230</h3>
+                    <p>二手房挂牌量</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1,892</h3>
+                    <p>本月成交套数</p>
+                </div>
+                <div class="stat-item">
+                    <h3>86</h3>
+                    <p>活跃中介门店</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-layout">
+            <!-- Left Column -->
+            <main>
+                <!-- Latest Properties -->
+                <section class="section">
+                    <div class="section-header">
+                        <h3 class="section-title">最新房源推荐</h3>
+                        <a href="#" class="section-more">查看更多 &gt;</a>
+                    </div>
+                    <div class="property-list">
+                        <article class="property-card">
+                            <div class="property-img">
+                                <img src="https://picsum.photos/seed/house1/240/180" alt="海尔路学区房">
+                            </div>
+                            <div class="property-info">
+                                <h4 class="property-title"><a href="#">海尔路某小区 3室2厅 精装现房 视野开阔</a></h4>
+                                <div class="property-tags">
+                                    <span class="tag">满五唯一</span>
+                                    <span class="tag">近地铁</span>
+                                    <span class="tag">南北通透</span>
+                                </div>
+                                <p class="property-desc">位于开发区核心地段，紧邻地铁13号线，周边生活配套成熟，学校就在家门口，适合刚需及改善型家庭居住。</p>
+                                <div class="property-meta">
+                                    <span>1.5万㎡ | 128㎡ | 南 | 高楼层</span>
+                                    <span class="price">320万 <small>起</small></span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="property-card">
+                            <div class="property-img">
+                                <img src="https://picsum.photos/seed/house2/240/180" alt="滨海度假区公寓">
+                            </div>
+                            <div class="property-info">
+                                <h4 class="property-title"><a href="#">滨海国际公寓 豪华装修 出租急售</a></h4>
+                                <div class="property-tags">
+                                    <span class="tag">海景房</span>
+                                    <span class="tag">精装修</span>
+                                    <span class="tag">拎包入住</span>
+                                </div>
+                                <p class="property-desc">坐拥一线海景，出门即是沙滩，非常适合度假居住或投资租赁，物业管理完善，安全性高。</p>
+                                <div class="property-meta">
+                                    <span>0.8万㎡ | 58㎡ | 南 | 中楼层</span>
+                                    <span class="price">98万 <small>起</small></span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="property-card">
+                            <div class="property-img">
+                                <img src="https://picsum.photos/seed/house3/240/180" alt="开发区商业中心商铺">
+                            </div>
+                            <div class="property-info">
+                                <h4 class="property-title"><a href="#">长江路商业街旺铺 车位充足 经营稳定</a></h4>
+                                <div class="property-tags">
+                                    <span class="tag">临街旺铺</span>
+                                    <span class="tag">人流量大</span>
+                                </div>
+                                <p class="property-desc">位于开发区最繁华的商业步行街，人流量巨大，自带停车位，适合餐饮、零售等多种业态经营。</p>
+                                <div class="property-meta">
+                                    <span>45㎡ | 临街 | 现铺 | 毛坯</span>
+                                    <span class="price">180万 <small>起</small></span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- News -->
+                <section class="section" style="margin-top: 40px;">
+                    <div class="section-header">
+                        <h3 class="section-title">区域房产资讯</h3>
+                        <a href="#" class="section-more">更多资讯 &gt;</a>
+                    </div>
+                    <div class="news-grid">
+                        <article class="news-item">
+                            <img src="https://picsum.photos/seed/news1/300/200" alt="新闻图片">
+                            <div class="news-content">
+                                <h4 class="news-title"><a href="#">青岛西海岸新区发布最新人才购房补贴政策</a></h4>
+                                <span class="news-date">2023-10-24</span>
+                            </div>
+                        </article>
+                        <article class="news-item">
+                            <img src="https://picsum.photos/seed/news2/300/200" alt="新闻图片">
+                            <div class="news-content">
+                                <h4 class="news-title"><a href="#">开发区地铁6号线最新建设进展通报</a></h4>
+                                <span class="news-date">2023-10-22</span>
+                            </div>
+                        </article>
+                        <article class="news-item">
+                            <img src="https://picsum.photos/seed/news3/300/200" alt="新闻图片">
+                            <div class="news-content">
+                                <h4 class="news-title"><a href="#">2023年青岛楼市下半场：成交量价走势分析</a></h4>
+                                <span class="news-date">2023-10-20</span>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Search Widget -->
+                <div class="sidebar-widget">
+                    <h4 class="section-title" style="border:none; padding:0; margin-bottom:15px;">快速找房</h4>
+                    <div class="search-bar" style="margin:0; max-width:100%;">
+                        <input type="text" placeholder="小区/商圈/区域">
+                        <button type="button">搜索</button>
+                    </div>
+                    <div style="margin-top: 15px; display: flex; gap: 10px;">
+                        <button type="button" style="flex:1; padding: 8px; background:#f0f0f0; border:1px solid #ddd; cursor:pointer;">二手房</button>
+                        <button type="button" style="flex:1; padding: 8px; background:#f0f0f0; border:1px solid #ddd; cursor:pointer;">新房</button>
+                        <button type="button" style="flex:1; padding: 8px; background:#f0f0f0; border:1px solid #ddd; cursor:pointer;">租房</button>
+                    </div>
+                </div>
+
+                <!-- Price Ranking -->
+                <div class="sidebar-widget">
+                    <h4 class="section-title" style="border:none; padding:0; margin-bottom:15px;">本月热销小区榜</h4>
+                    <div class="price-rank-list">
+                        <div class="price-rank-item">
+                            <span class="rank-num">1</span>
+                            <div class="rank-info">
+                                <div class="rank-title">江山路某小区</div>
+                                <div class="rank-price">均价: <span>15,000元/㎡</span></div>
+                            </div>
+                        </div>
+                        <div class="price-rank-item">
+                            <span class="rank-num">2</span>
+                            <div class="rank-info">
+                                <div class="rank-title">长江路某小区</div>
+                                <div class="rank-price">均价: <span>13,500元/㎡</span></div>
+                            </div>
+                        </div>
+                        <div class="price-rank-item">
+                            <span class="rank-num">3</span>
+                            <div class="rank-info">
+                                <div class="rank-title">井冈山路某小区</div>
+                                <div class="rank-price">均价: <span>12,800元/㎡</span></div>
+                            </div>
+                        </div>
+                        <div class="price-rank-item">
+                            <span class="rank-num">4</span>
+                            <div class="rank-info">
+                                <div class="rank-title">香江路某小区</div>
+                                <div class="rank-price">均价: <span>11,200元/㎡</span></div>
+                            </div>
+                        </div>
+                        <div class="price-rank-item">
+                            <span class="rank-num">5</span>
+                            <div class="rank-info">
+                                <div class="rank-title">灵山湾某小区</div>
+                                <div class="rank-price">均价: <span>10,500元/㎡</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- District Guide -->
+                <div class="sidebar-widget">
+                    <h4 class="section-title" style="border:none; padding:0; margin-bottom:15px;">热门板块</h4>
+                    <ul class="district-grid" style="grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <li><a href="#" style="display:block; padding:8px; background:#f9f9f9; border-radius:4px; text-align:center; font-size:13px;">唐岛湾</a></li>
+                        <li><a href="#" style="display:block; padding:8px; background:#f9f9f9; border-radius:4px; text-align:center; font-size:13px;">灵山湾</a></li>
+                        <li><a href="#" style="display:block; padding:8px; background:#f9f9f9; border-radius:4px; text-align:center; font-size:13px;">古镇口</a></li>
+                        <li><a href="#" style="display:block; padding:8px; background:#f9f9f9; border-radius:4px; text-align:center; font-size:13px;">灵珠山</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Districts Section -->
+        <section class="section">
+            <div class="section-header">
+                <h3 class="section-title">开发区热门区域</h3>
+            </div>
+            <div class="district-grid">
+                <div class="district-card">
+                    <div class="district-icon">🏢</div>
+                    <div class="district-name">长江路街道</div>
+                    <div class="district-sub">行政商业中心</div>
+                </div>
+                <div class="district-card">
+                    <div class="district-icon">🌊</div>
+                    <div class="district-name">唐岛湾公园</div>
+                    <div class="district-sub">滨海宜居带</div>
+                </div>
+                <div class="district-card">
+                    <div class="district-icon">🏭</div>
+                    <div class="district-name">董家口经济区</div>
+                    <div class="district-sub">港口物流重镇</div>
+                </div>
+                <div class="district-card">
+                    <div class="district-icon">🎓</div>
+                    <div class="district-name">古镇口军民融合区</div>
+                    <div class="district-sub">科教创新高地</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size:13px; line-height:1.8;">青岛开发区房产信息网致力于为西海岸新区居民提供专业、准确、及时的房地产信息服务。我们汇集了区内各大房产中介的优质房源，旨在打造透明、便捷的线上看房平台。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">新房中心</a></li>
+                        <li><a href="#">二手房交易</a></li>
+                        <li><a href="#">房屋租赁</a></li>
+                        <li><a href="#">房产地图</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务指南</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">购房流程</a></li>
+                        <li><a href="#">公积金贷款</a></li>
+                        <li><a href="#">税费计算</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul class="footer-links">
+                        <li>电话：0532-12345678</li>
+                        <li>邮箱：service@qddev-house.com</li>
+                        <li>地址：青岛市黄岛区长江中路221号</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2023 青岛开发区房产信息网 All Rights Reserved.</p>
+                <p style="margin-top:5px; color:#7f8c8d;">本站数据仅供参考，具体以实际交易为准</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                              </html>
