@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>韩寒博客新浪-韩寒的个人主页与最新动态记录</title>
+    <meta name="description" content="韩寒博客新浪官方页面。收录韩寒的个人博客文章、随感、汽车评论及最新动态。在这里可以阅读韩寒对于文学、赛车、时事的独特见解与生活随笔。">
+    <meta name="keywords" content="韩寒博客,韩寒新浪博客,韩寒博客新浪,韩寒个人主页,韩寒文章,韩寒随感">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #333333;
+            --accent-color: #c81623;
+            --bg-color: #f4f4f4;
+            --card-bg: #ffffff;
+            --text-main: #2c2c2c;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --spacing-unit: 16px;
+            --container-width: 1000px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* Main Layout */
+        .main-container {
+            max-width: var(--container-width);
+            margin: 20px auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 24px;
+        }
+
+        /* Left Column - Blog Feed */
+        .feed-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://picsum.photos/seed/hanhan/800/300') center/cover;
+            opacity: 0.2;
+            mix-blend-mode: overlay;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 14px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .post-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .post-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .post-meta {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .post-tag {
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--text-secondary);
+        }
+
+        .post-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .post-excerpt {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent-color);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more::after {
+            content: '→';
+            margin-left: 4px;
+            transition: margin-left 0.2s;
+        }
+
+        .read-more:hover::after {
+            margin-left: 8px;
+        }
+
+        /* Right Column - Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .widget-title {
+            font-size: 16px;
+            font-weight: 600;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 10px;
+            margin-bottom: 16px;
+        }
+
+        .profile-widget {
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin: 0 auto 12px;
+            overflow: hidden;
+            border: 2px solid var(--accent-color);
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .profile-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-links a {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .category-list li {
+            border-bottom: 1px dashed #eee;
+        }
+
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 14px;
+            color: var(--text-main);
+        }
+
+        .category-list a:hover {
+            color: var(--accent-color);
+        }
+
+        .category-count {
+            background-color: #eee;
+            color: #666;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #ccc;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+
+            .header-container {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span>韩寒</span>博客新浪
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">随笔</a></li>
+                    <li><a href="#">杂文</a></li>
+                    <li><a href="#">生活</a></li>
+                    <li><a href="#">关于</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- Left Column: Content Feed -->
+        <section class="feed-section">
+            <article class="hero-banner">
+                <div class="hero-content">
+                    <h1>保持独立，保持思考</h1>
+                    <p>这是韩寒在新浪博客的个人主页，记录下关于文学、赛车与生活的点滴思考。欢迎来到这里，阅读他的最新文章。</p>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span>2023-10-24</span>
+                    <span>•</span>
+                    <span class="post-tag">随笔</span>
+                </div>
+                <h2 class="post-title"><a href="#">关于阅读与写作的一点碎碎念</a></h2>
+                <p class="post-excerpt">
+                    在这个信息爆炸的时代，能够静下心来读完一本纸质书似乎成了一种奢侈。但我始终认为，文字的力量在于深度思考。今天想和大家聊聊为什么我依然坚持写博客，以及阅读对于一个人的改变...
+                </p>
+                <a href="#" class="read-more">阅读全文</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span>2023-09-15</span>
+                    <span>•</span>
+                    <span class="post-tag">杂文</span>
+                </div>
+                <h2 class="post-title"><a href="#">时代的洪流与个人的选择</a></h2>
+                <p class="post-excerpt">
+                    我们常常被裹挟在时代的洪流中，身不由己。但即便如此，作为一个个体，依然拥有选择的权利。无论是生活方式的选择，还是价值观的坚持，都值得被尊重。今天不谈大道理，只谈感受。
+                </p>
+                <a href="#" class="read-more">阅读全文</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span>2023-08-02</span>
+                    <span>•</span>
+                    <span class="post-tag">生活</span>
+                </div>
+                <h2 class="post-title"><a href="#">周末的赛车场见闻</a></h2>
+                <p class="post-excerpt">
+                    赛车不仅仅是速度的竞技，更是对机械的热爱与掌控。本周去赛道试驾了一款新车，感受非常棒。引擎的轰鸣声是世界上最动听的乐章，风噪与轮胎摩擦地面的声音交织在一起...
+                </p>
+                <a href="#" class="read-more">阅读全文</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span>2023-07-10</span>
+                    <span>•</span>
+                    <span class="post-tag">新书推荐</span>
+                </div>
+                <h2 class="post-title"><a href="#">《平原上的摩西》读后感</a></h2>
+                <p class="post-excerpt">
+                    刚读完这部长篇小说，被作者细腻的笔触深深打动。故事发生在北方的小城，讲述了两个家庭跨越二十年的恩怨情仇。悬疑与温情并存，读到最后让人唏嘘不已。
+                </p>
+                <a href="#" class="read-more">阅读全文</a>
+            </article>
+        </section>
+
+        <!-- Right Column: Sidebar -->
+        <aside>
+            <!-- Profile Widget -->
+            <div class="sidebar-widget profile-widget">
+                <div class="profile-avatar">
+                    <img src="https://picsum.photos/seed/hanhan_avatar/200/200" alt="韩寒头像">
+                </div>
+                <h3 class="profile-name">韩寒</h3>
+                <p class="profile-desc">作家、导演、赛车手。写书、拍电影、玩赛车，一直在路上。</p>
+                <div class="social-links">
+                    <a href="#" title="微博">微</a>
+                    <a href="#" title="豆瓣">豆</a>
+                    <a href="#" title="知乎">知</a>
+                </div>
+            </div>
+
+            <!-- Categories Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">文章分类</h3>
+                <ul class="category-list">
+                    <li><a href="#">随笔杂谈 <span class="category-count">128</span></a></li>
+                    <li><a href="#">杂文时评 <span class="category-count">85</span></a></li>
+                    <li><a href="#">生活记录 <span class="category-count">45</span></a></li>
+                    <li><a href="#">赛车日记 <span class="category-count">32</span></a></li>
+                    <li><a href="#">电影评论 <span class="category-count">21</span></a></li>
+                    <li><a href="#">新书发布 <span class="category-count">15</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Ad Placeholder -->
+            <div class="sidebar-widget" style="background-color: #eee; display: flex; align-items: center; justify-content: center; color: #999; font-size: 12px; min-height: 200px;">
+                广告位
+            </div>
+
+            <!-- Recent Comments -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">最新留言</h3>
+                <ul style="font-size: 13px; color: #666;">
+                    <li style="margin-bottom: 10px; border-bottom: 1px solid #f5f5f5; padding-bottom: 10px;">
+                        <span style="color: #333;">网友A：</span> 文章写得很深刻，很有共鸣。
+                    </li>
+                    <li style="margin-bottom: 10px; border-bottom: 1px solid #f5f5f5; padding-bottom: 10px;">
+                        <span style="color: #333;">网友B：</span> 希望能多更新一些关于赛车的内容。
+                    </li>
+                    <li>
+                        <span style="color: #333;">网友C：</span> 支持韩老师！
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">版权声明</a>
+                <a href="#">联系方式</a>
+                <a href="#">新浪博客</a>
+            </div>
+            <p>&copy; 2023 韩寒博客新浪. All Rights Reserved.</p>
+            <p style="margin-top: 10px; font-size: 12px; color: #888;">本页面仅为内容展示示例，非韩寒本人官方运营。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
