@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="王者荣耀体验服专区提供最新的游戏版本更新内容、英雄调整数据、BUG修复公告及抢先体验入口。帮助玩家第一时间了解王者荣耀测试服动态。">
+    <meta name="keywords" content="王者荣耀体验服专区,王者荣耀测试服,王者荣耀更新公告,王者荣耀英雄调整,王者荣耀抢先服">
+    <title>王者荣耀体验服专区-抢先体验最新版本与英雄调整</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ffbe00;
+            --secondary-color: #2c2f33;
+            --accent-color: #7289da;
+            --bg-color: #f2f3f5;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-light: #7f8c8d;
+            --danger: #e74c3c;
+            --success: #2ecc71;
+            --spacing-unit: 16px;
+            --border-radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 16px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .btn-login {
+            padding: 8px 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e272e 0%, #2c3e50 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 30px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            max-width: 600px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(255, 190, 0, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 190, 0, 0.5);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            background: var(--card-bg);
+            padding: 15px 0;
+            margin-bottom: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .status-item {
+            padding: 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .status-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .status-label {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .status-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .status-value.hot { color: var(--danger); }
+        .status-value.new { color: var(--success); }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Section Styles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .more-link {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .more-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Article List */
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .card-date {
+            min-width: 60px;
+            text-align: center;
+            padding-right: 20px;
+            border-right: 1px solid #eee;
+        }
+
+        .date-day {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-light);
+            line-height: 1;
+        }
+
+        .date-month {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .tag-update { background-color: #e3f2fd; color: #1976d2; }
+        .tag-hero { background-color: #fce4ec; color: #c2185b; }
+        .tag-balance { background-color: #fff3e0; color: #f57c00; }
+        .tag-bug { background-color: #ffebee; color: #c62828; }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .card-title:hover {
+            color: var(--primary-color);
+        }
+
+        .card-summary {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: #999;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .rank-list {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .rank-item:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background-color: #eee;
+            color: #666;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            margin-right: 12px;
+        }
+
+        .rank-item:nth-child(1) .rank-num { background-color: #ffd700; color: #fff; }
+        .rank-item:nth-child(2) .rank-num { background-color: #c0c0c0; color: #fff; }
+        .rank-item:nth-child(3) .rank-num { background-color: #cd7f32; color: #fff; }
+
+        .rank-name {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .rank-rate {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .hero-preview {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .preview-img {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .preview-info {
+            padding: 15px;
+        }
+
+        .preview-info h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .preview-info p {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 40px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #bdc3c7;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-stats {
+                margin-top: 30px;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-card {
+                flex-direction: column;
+            }
+
+            .card-date {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>王者荣耀</span>体验服专区
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">更新公告</a>
+                <a href="#">英雄调整</a>
+                <a href="#">装备改动</a>
+                <a href="#">抢先服</a>
+            </nav>
+            <a href="#" class="btn-login">登录体验服</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>抢先体验最新版本<br>见证游戏未来</h1>
+                <p>体验服为玩家提供最新游戏内容的测试机会，包含英雄技能调整、装备属性优化及BUG修复。请遵守测试规则，文明参与。</p>
+                <a href="#" class="btn-primary">立即申请入驻</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>V10.5</h3>
+                    <p>当前版本</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3</h3>
+                    <p>新英雄测试中</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24h</h3>
+                    <p>轮换周期</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-grid">
+                <div class="status-item">
+                    <div class="status-label">维护状态</div>
+                    <div class="status-value hot">维护中</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">维护剩余时间</div>
+                    <div class="status-value">02:15:30</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">今日更新内容</div>
+                    <div class="status-value new">英雄：[新英雄] 露娜·星河</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">维护时间</div>
+                    <div class="status-value">12:00 - 14:00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <!-- Left Column -->
+            <main>
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">最新更新公告</h2>
+                        <a href="#" class="more-link">查看全部 &gt;</a>
+                    </div>
+                    <div class="article-list">
+                        <article class="article-card">
+                            <div class="card-date">
+                                <div class="date-day">12</div>
+                                <div class="date-month">10月</div>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-tag tag-hero">英雄调整</span>
+                                <h3 class="card-title"><a href="#">【体验服】英雄“云中君”技能机制优化与数值调整公告</a></h3>
+                                <p class="card-summary">针对云中君在实战中飞行机制判定延迟的问题进行优化，同时调整了其技能伤害数值，使其在前期对线更具优势...</p>
+                                <div class="card-meta">
+                                    <span>作者：官方运营组</span>
+                                    <span>阅读：12,405</span>
+                                    <span>评论：328</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="article-card">
+                            <div class="card-date">
+                                <div class="date-day">10</div>
+                                <div class="date-month">10月</div>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-tag tag-balance">装备调整</span>
+                                <h3 class="card-title"><a href="#">【体验服】装备“暗影战斧”被动护甲穿透机制调整说明</a></h3>
+                                <p class="card-summary">为了平衡坦克英雄在中期的承伤能力，现对暗影战斧的被动效果进行微调，将固定穿透转化为百分比穿透...</p>
+                                <div class="card-meta">
+                                    <span>作者：策划组</span>
+                                    <span>阅读：15,230</span>
+                                    <span>评论：561</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="article-card">
+                            <div class="card-date">
+                                <div class="date-day">08</div>
+                                <div class="date-month">10月</div>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-tag tag-bug">BUG修复</span>
+                                <h3 class="card-title"><a href="#">【体验服】10月8日版本修复问题汇总</a></h3>
+                                <p class="card-summary">本次修复了部分英雄在特定网络环境下技能延迟的问题，以及优化了高地塔视野显示的显示错误...</p>
+                                <div class="card-meta">
+                                    <span>作者：技术支持</span>
+                                    <span>阅读：8,902</span>
+                                    <span>评论：112</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="article-card">
+                            <div class="card-date">
+                                <div class="date-day">05</div>
+                                <div class="date-month">10月</div>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-tag tag-update">版本预告</span>
+                                <h3 class="card-title"><a href="#">【体验服】S35赛季前瞻：全新地图机制与游戏节奏</a></h3>
+                                <p class="card-summary">下个赛季将在王者峡谷增加野怪刷新速度调整及河道视野装置的变动，旨在加快中后期团战节奏...</p>
+                                <div class="card-meta">
+                                    <span>作者：官方策划</span>
+                                    <span>阅读：22,100</span>
+                                    <span>评论：892</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section style="margin-top: 40px;">
+                    <div class="section-header">
+                        <h2 class="section-title">热门英雄排行</h2>
+                        <a href="#" class="more-link">查看完整榜单 &gt;</a>
+                    </div>
+                    <div class="article-list">
+                        <article class="article-card">
+                            <div class="card-date" style="border:none; padding:0; display:flex; align-items:center;">
+                                <span style="color:#ffbe00; font-weight:bold; font-size:20px; margin-right:10px;">1</span>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title"><a href="#">兰陵王 - 潜行刺客</a></h3>
+                                <p class="card-summary">胜率：52.4% | 使用率：18.9%</p>
+                            </div>
+                        </article>
+                        <article class="article-card">
+                            <div class="card-date" style="border:none; padding:0; display:flex; align-items:center;">
+                                <span style="color:#c0c0c0; font-weight:bold; font-size:20px; margin-right:10px;">2</span>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title"><a href="#">镜 - 切影之舞</a></h3>
+                                <p class="card-summary">胜率：51.8% | 使用率：15.2%</p>
+                            </div>
+                        </article>
+                        <article class="article-card">
+                            <div class="card-date" style="border:none; padding:0; display:flex; align-items:center;">
+                                <span style="color:#cd7f32; font-weight:bold; font-size:20px; margin-right:10px;">3</span>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title"><a href="#">孙悟空 - 齐天大圣</a></h3>
+                                <p class="card-summary">胜率：50.5% | 使用率：12.1%</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Right Sidebar -->
+            <aside class="sidebar">
+                <!-- Hero Preview -->
+                <div class="hero-preview">
+                    <img src="https://picsum.photos/seed/wzryhero/400/200" alt="新英雄预览" class="preview-img">
+                    <div class="preview-info">
+                        <h4>新英雄“云中君”抢先看</h4>
+                        <p>飞行机制与被动技能详解</p>
+                        <a href="#" style="display:inline-block; margin-top:10px; color:var(--primary-color); font-size:14px; font-weight:600;">阅读攻略 &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Hero Ranks -->
+                <div class="rank-list">
+                    <h3 style="font-size:18px; margin-bottom:15px; border-left:4px solid var(--primary-color); padding-left:10px;">胜率榜 TOP 5</h3>
+                    <div class="rank-item">
+                        <div class="rank-num">1</div>
+                        <div class="rank-name">孙策</div>
+                        <div class="rank-rate">54.2%</div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">2</div>
+                        <div class="rank-name">马超</div>
+                        <div class="rank-rate">53.8%</div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">3</div>
+                        <div class="rank-name">鲁班七号</div>
+                        <div class="rank-rate">53.1%</div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">4</div>
+                        <div class="rank-name">伽罗</div>
+                        <div class="rank-rate">52.9%</div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">5</div>
+                        <div class="rank-name">貂蝉</div>
+                        <div class="rank-rate">52.5%</div>
+                    </div>
+                </div>
+
+                <!-- Notice -->
+                <div class="rank-list">
+                    <h3 style="font-size:18px; margin-bottom:15px; border-left:4px solid var(--danger); padding-left:10px;">注意事项</h3>
+                    <ul style="font-size:14px; color:var(--text-light);">
+                        <li style="margin-bottom:10px;">• 体验服账号需通过官方审核。</li>
+                        <li style="margin-bottom:10px;">• 账号数据不互通正式服。</li>
+                        <li style="margin-bottom:10px;">• 请勿在体验服进行充值消费。</li>
+                        <li style="margin-bottom:10px;">• 遇到BUG请及时在官方反馈。</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="section-header">
+                <h2 class="section-title">常见问题解答</h2>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">如何申请成为体验服玩家？ <span>+</span></div>
+                <div class="faq-answer">玩家需通过游戏内“玩家中心”或官方网站提交申请，系统会根据账号信誉度、游戏时长及活跃度进行随机抽取。并非所有申请者都能通过。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">体验服账号数据会被清空吗？ <span>+</span></div>
+                <div class="faq-answer">是的，体验服账号的数据与正式服完全隔离。每次版本更新或维护后，账号数据通常会进行重置，请做好心理准备。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">在体验服充值了怎么办？ <span>+</span></div>
+                <div class="faq-answer">体验服为免费测试环境，严禁任何形式的充值行为。一旦检测到充值，账号将被永久封禁，请勿尝试。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">体验服版本滞后于正式服多久？ <span>+</span></div>
+                <div class="faq-answer">体验服版本通常领先正式服1-2个版本。新英雄和新皮肤通常先在体验服测试，通过后才会上线正式服。</div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>王者荣耀体验服</h4>
+                    <p style="font-size:14px; line-height:1.8;">为热爱游戏的玩家提供最新的游戏内容测试平台，致力于打造公平、健康的游戏环境。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">官方网站</a></li>
+                        <li><a href="#">玩家社区</a></li>
+                        <li><a href="#">客服中心</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">招贤纳士</a></li>
+                        <li><a href="#">联系合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">官方微博</a></li>
+                        <li><a href="#">Bilibili账号</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 王者荣耀体验服专区 版权所有 | 本站为演示页面</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+                                  </html>
