@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="肇始 - 探索万物起源与文明初曙的深度文化平台，提供原创科幻小说、神话解构及哲学思考。">
+    <meta name="keywords" content="肇始,万物起源,科幻小说,神话解构,哲学思考,原创文学">
+    <title>肇始 - 探索万物起源与文明初曙的深度文化平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f0f13;
+            --card-bg: #1a1a24;
+            --text-primary: #e0e0e0;
+            --text-secondary: #9ca3af;
+            --accent-color: #8b5cf6;
+            --accent-hover: #7c3aed;
+            --border-color: #2d2d3a;
+            --font-main: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(15, 15, 19, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--text-primary);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .header-actions button {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .header-actions button:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #2d2d3a 0%, #0f0f13 70%);
+            padding-top: 70px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 4px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 80px 0;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .philosophy-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .philosophy-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .philosophy-image {
+            width: 100%;
+            height: 400px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .philosophy-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2));
+            z-index: 0;
+        }
+
+        .philosophy-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        /* Featured Works (Novel) */
+        .featured-section {
+            padding: 80px 0;
+            background-color: #14141a;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .work-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .work-cover {
+            height: 400px;
+            background-color: #2d2d3a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .work-card:hover .work-cover img {
+            transform: scale(1.05);
+        }
+
+        .work-info {
+            padding: 20px;
+        }
+
+        .work-tag {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .work-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .work-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .work-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+
+        /* Mythology Section */
+        .mythology {
+            padding: 80px 0;
+        }
+
+        .myth-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .myth-item {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-left: 4px solid var(--accent-color);
+            transition: background-color 0.3s;
+        }
+
+        .myth-item:hover {
+            background-color: #23232f;
+        }
+
+        .myth-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(139, 92, 246, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .myth-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .myth-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            padding: 60px 0;
+            background: linear-gradient(90deg, #1e1b4b 0%, #312e81 100%);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 4px;
+            border: none;
+            outline: none;
+        }
+
+        .input-group button {
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0c;
+            padding: 60px 0 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #1f1f28;
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .philosophy-grid { grid-template-columns: 1fr; }
+            .nav-container { flex-direction: column; height: auto; padding: 15px 0; }
+            nav ul { margin: 15px 0; gap: 15px; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .input-group { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">肇<span>始</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">原创小说</a></li>
+                    <li><a href="#">神话解构</a></li>
+                    <li><a href="#">哲学专栏</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button>订阅更新</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>肇始</h1>
+                <p>探索人类文明的源头，在混沌中寻找秩序，在废墟上重建神话。这里是对万物起源的深度追问与重构。</p>
+                <a href="#featured" class="cta-button">开始探索</a>
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section class="philosophy">
+            <div class="container">
+                <div class="philosophy-grid">
+                    <div class="philosophy-text">
+                        <h2>寻找文明的"肇始"</h2>
+                        <p>“肇始”一词，意为事情的开端或起源。在浩瀚的时间长河中，我们总是试图回溯，去理解那些被遗忘的瞬间。是对过往的缅怀，还是对未来蓝图的预设？</p>
+                        <p>肇始不仅仅是一个时间概念，更是一种精神状态。它代表着从无到有的创造，代表着在绝对虚无中确立意义的勇气。我们致力于通过文学与思考，呈现这种从零开始的张力。</p>
+                        <a href="#" style="color: var(--accent-color); border-bottom: 1px solid var(--accent-color);">阅读更多关于肇始的哲学思考 &rarr;</a>
+                    </div>
+                    <div class="philosophy-image">
+                        <!-- Placeholder for a nebula/creation image -->
+                        <img src="https://picsum.photos/seed/nebula/600/400" alt="宇宙起源意象">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Works (Novel) -->
+        <section id="featured" class="featured-section">
+            <div class="container">
+                <h2 class="section-title">精选原创小说</h2>
+                <div class="works-grid">
+                    <!-- Work 1 -->
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <img src="https://picsum.photos/seed/cyber1/400/600" alt="创世纪代码封面">
+                        </div>
+                        <div class="work-info">
+                            <span class="work-tag">科幻 / 硬核</span>
+                            <h3 class="work-title">创世纪代码</h3>
+                            <p class="work-desc">当人类意识可以上传至网络，第一行代码的诞生究竟意味着生命的延续，还是灵魂的囚禁？</p>
+                            <div class="work-meta">
+                                <span>作者：零号观测者</span>
+                                <span>已更新：第12章</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Work 2 -->
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <img src="https://picsum.photos/seed/myth2/400/600" alt="山海重修封面">
+                        </div>
+                        <div class="work-info">
+                            <span class="work-tag">奇幻 / 重构</span>
+                            <h3 class="work-title">山海重修</h3>
+                            <p class="work-desc">旧神已死，新神未立。在这个崩坏的世界里，主角试图重绘神谱，寻找文明的肇始之地。</p>
+                            <div class="work-meta">
+                                <span>作者：墨客</span>
+                                <span>连载中</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Work 3 -->
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <img src="https://picsum.photos/seed/history3/400/600" alt="尘封档案封面">
+                        </div>
+                        <div class="work-info">
+                            <span class="work-tag">悬疑 / 历史</span>
+                            <h3 class="work-title">尘封档案：肇始</h3>
+                            <p class="work-desc">考古学家在极地冰层下发现了一块刻有未知文字的石碑，这段文字似乎记录了人类出现之前的历史。</p>
+                            <div class="work-meta">
+                                <span>作者：解密者</span>
+                                <span>完结</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mythology & Culture Section -->
+        <section class="mythology">
+            <div class="container">
+                <h2 class="section-title">神话与起源文化</h2>
+                <div class="myth-list">
+                    <div class="myth-item">
+                        <div class="myth-icon">Ⅰ</div>
+                        <div class="myth-content">
+                            <h3>世界树传说</h3>
+                            <p>探讨北欧神话中世界树的根系如何连接九界，以及其作为万物“肇始”象征的深层含义。</p>
+                        </div>
+                    </div>
+                    <div class="myth-item">
+                        <div class="myth-icon">Ⅱ</div>
+                        <div class="myth-content">
+                            <h3>混沌初开</h3>
+                            <p>分析希腊神话中卡俄斯（Chaos）的概念，以及从混沌到秩序诞生的哲学过程。</p>
+                        </div>
+                    </div>
+                    <div class="myth-item">
+                        <div class="myth-icon">Ⅲ</div>
+                        <div class="myth-content">
+                            <h3>造物主的沉默</h3>
+                            <p>在宗教与科幻交叉视角下，审视造物主是否存在，以及“肇始”这一行为背后的伦理困境。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container">
+                <h2>加入肇始计划</h2>
+                <p>获取最新的原创小说更新、神话解析专栏及深度文化评论。</p>
+                <form class="input-group" onsubmit="event.preventDefault(); alert('感谢您的订阅！我们将定期向您推送关于肇始的深度内容。');">
+                    <input type="email" placeholder="请输入您的电子邮箱" required>
+                    <button type="submit">订阅</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">肇<span>始</span></div>
+                    <p style="margin-top: 15px; color: var(--text-secondary); font-size: 0.9rem;">
+                        肇始致力于挖掘和呈现关于起源、创造与文明初曙的深度内容。我们相信，理解过去，是创造未来的唯一途径。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>内容栏目</h4>
+                    <ul>
+                        <li><a href="#">原创科幻</a></li>
+                        <li><a href="#">神话解构</a></li>
+                        <li><a href="#">历史考古</a></li>
+                        <li><a href="#">哲学随笔</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">编辑团队</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">版权声明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">微博话题</a></li>
+                        <li><a href="#">知乎专栏</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2023 肇始文化平台. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
