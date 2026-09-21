@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>妖姬三国-热血策略卡牌与历史架空对战</title>
+    <meta name="description" content="妖姬三国官网，提供热门三国题材卡牌手游、历史架空策略对战、武将养成及最新活动资讯。探索三国乱世，集结红颜与英雄，体验不一样的策略战斗。">
+    <meta name="keywords" content="妖姬三国,三国手游,卡牌策略,历史架空,三国攻略">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-red: #8B0000;
+            --accent-gold: #D4AF37;
+            --dark-bg: #1a0505;
+            --card-bg: #2a0a0a;
+            --text-main: #f0f0f0;
+            --text-sub: #a0a0a0;
+            --border-color: #4a1a1a;
+            --gradient-hero: linear-gradient(135deg, #2d0b0b 0%, #000000 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-red);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .download-btn {
+            background: linear-gradient(90deg, var(--primary-red), #5e0000);
+            padding: 8px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            border: 1px solid var(--accent-gold);
+            box-shadow: 0 0 15px rgba(139, 0, 0, 0.4);
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(90deg, #a00000, var(--primary-red));
+            transform: translateY(-2px);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 600px;
+            background-image: url('https://picsum.photos/seed/sanguo_hero/1920/1080.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-hero);
+            opacity: 0.7;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-title {
+            font-size: 56px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-desc {
+            font-size: 20px;
+            color: #ddd;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-gold);
+            color: #000;
+            border: none;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: #fff;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* 特色内容区 */
+        .features {
+            padding: 80px 0;
+            background-color: var(--dark-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-red);
+            margin: 10px auto 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary-red);
+        }
+
+        .feature-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .feature-text {
+            color: var(--text-sub);
+            font-size: 15px;
+        }
+
+        /* 武将展示区 */
+        .characters {
+            padding: 80px 0;
+            background-color: #120202;
+        }
+
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .char-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 320px;
+            cursor: pointer;
+            group: char;
+        }
+
+        .char-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .char-card:hover .char-img {
+            transform: scale(1.1);
+        }
+
+        .char-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+            padding: 20px;
+            transform: translateY(20px);
+            opacity: 0.9;
+            transition: 0.3s;
+        }
+
+        .char-card:hover .char-overlay {
+            transform: translateY(0);
+        }
+
+        .char-name {
+            font-size: 20px;
+            color: var(--accent-gold);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .char-role {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        /* 游戏玩法 */
+        .gameplay {
+            padding: 80px 0;
+        }
+
+        .play-layout {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .play-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid var(--border-color);
+        }
+
+        .play-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .play-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .play-list li {
+            margin-bottom: 25px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .play-list li::before {
+            content: '⚔';
+            position: absolute;
+            left: 0;
+            color: var(--primary-red);
+            font-size: 20px;
+        }
+
+        .play-list h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .play-list p {
+            color: var(--text-sub);
+            font-size: 15px;
+        }
+
+        /* 新闻/资讯 */
+        .news {
+            padding: 80px 0;
+            background-color: #120202;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .news-main {
+            display: flex;
+            gap: 20px;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            align-items: center;
+        }
+
+        .news-thumb {
+            width: 200px;
+            height: 120px;
+            border-radius: 4px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .news-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .news-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .news-info p {
+            color: var(--text-sub);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .news-date {
+            font-size: 12px;
+            color: var(--accent-gold);
+        }
+
+        .news-sidebar h4 {
+            border-left: 3px solid var(--primary-red);
+            padding-left: 10px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .news-list-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .news-list-item a {
+            font-size: 14px;
+            color: var(--text-sub);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .news-list-item a:hover {
+            color: var(--accent-gold);
+        }
+
+        .news-list-item span {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* 下载引导 */
+        .download-section {
+            padding: 60px 0;
+            background: linear-gradient(to right, #1a0505, #2d0b0b);
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .qr-box {
+            display: inline-block;
+            margin: 30px 0;
+            padding: 10px;
+            background: #fff;
+            border-radius: 8px;
+        }
+
+        .qr-box img {
+            width: 180px;
+            height: 180px;
+            display: block;
+        }
+
+        .download-text {
+            margin-bottom: 20px;
+        }
+
+        .download-text h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .download-text p {
+            color: var(--text-sub);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #000;
+            padding: 60px 0 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #555;
+            font-size: 13px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .play-layout {
+                flex-direction: column;
+            }
+
+            .play-image {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>❖</span> 妖姬三国
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#features">特色玩法</a></li>
+                    <li><a href="#characters">武将图鉴</a></li>
+                    <li><a href="#news">最新资讯</a></li>
+                    <li><a href="#download">下载专区</a></li>
+                </ul>
+            </nav>
+            <a href="#download" class="download-btn">立即下载</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">乱世红颜，谁主沉浮？</h1>
+                <p class="hero-desc">《妖姬三国》是一款以三国历史为背景的策略卡牌手游。在这个架空的历史世界中，集结绝世红颜与乱世英雄，通过策略搭配与技能连携，一统天下。</p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary">安卓下载</a>
+                    <a href="#features" class="btn btn-secondary">了解玩法</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">核心特色</h2>
+                    <p style="color:var(--text-sub); margin-top:10px;">体验前所未有的策略战斗与角色养成</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">👑</div>
+                        <h3 class="feature-title">红颜养成系统</h3>
+                        <p class="feature-text">招募并养成历史上的绝代佳人。每位武将都有独特的技能与背景故事，通过羁绊系统提升属性，打造最强阵容。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">⚔️</div>
+                        <h3 class="feature-title">策略卡牌对战</h3>
+                        <p class="feature-text">摒弃无脑数值，回归策略本源。合理的站位、技能释放时机与兵种克制，是赢得战场胜利的关键。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🏰</div>
+                        <h3 class="feature-title">城池攻防玩法</h3>
+                        <p class="feature-text">参与跨服国战，与其他玩家争夺城池资源。制定攻防战术，攻城略地，建立属于你的霸业。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Characters Section -->
+        <section id="characters" class="characters">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">绝世武将</h2>
+                    <p style="color:var(--text-sub); margin-top:10px;">见证英雄与美人的传奇时刻</p>
+                </div>
+                <div class="character-grid">
+                    <div class="char-card">
+                        <img src="https://picsum.photos/seed/cao_cao/400/600.jpg" alt="曹操" class="char-img">
+                        <div class="char-overlay">
+                            <h3 class="char-name">曹操</h3>
+                            <p class="char-role">魏国 · 魏武帝</p>
+                        </div>
+                    </div>
+                    <div class="char-card">
+                        <img src="https://picsum.photos/seed/diao_chan/400/600.jpg" alt="貂蝉" class="char-img">
+                        <div class="char-overlay">
+                            <h3 class="char-name">貂蝉</h3>
+                            <p class="char-role">群雄 · 绝代佳人</p>
+                        </div>
+                    </div>
+                    <div class="char-card">
+                        <img src="https://picsum.photos/seed/li_bei/400/600.jpg" alt="刘备" class="char-img">
+                        <div class="char-overlay">
+                            <h3 class="char-name">刘备</h3>
+                            <p class="char-role">蜀汉 · 昭烈帝</p>
+                        </div>
+                    </div>
+                    <div class="char-card">
+                        <img src="https://picsum.photos/seed/sun_quan/400/600.jpg" alt="孙权" class="char-img">
+                        <div class="char-overlay">
+                            <h3 class="char-name">孙权</h3>
+                            <p class="char-role">东吴 · 吴大帝</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gameplay Section -->
+        <section class="gameplay">
+            <div class="container">
+                <div class="play-layout">
+                    <div class="play-image">
+                        <img src="https://picsum.photos/seed/battle_scene/800/600.jpg" alt="战斗场景">
+                    </div>
+                    <div class="play-content">
+                        <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">如何称霸三国？</h2>
+                        <ul class="play-list">
+                            <li>
+                                <h3>组建阵容</h3>
+                                <p>根据武将的属性、技能类型以及兵种相克关系，组建一支平衡的队伍。前排坦克吸引火力，后排输出提供伤害。</p>
+                            </li>
+                            <li>
+                                <h3>羁绊觉醒</h3>
+                                <p>收集特定武将组合，可激活强力羁绊效果，大幅提升全队属性。合理利用羁绊系统是快速提升实力的捷径。</p>
+                            </li>
+                            <li>
+                                <h3>资源争夺</h3>
+                                <p>通过日常任务、副本挑战以及国战活动获取资源。资源是升级武将、强化装备的基础，切勿忽视。</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="news">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">最新动态</h2>
+                </div>
+                <div class="news-grid">
+                    <div class="news-main">
+                        <div class="news-thumb">
+                            <img src="https://picsum.photos/seed/event_1/400/300.jpg" alt="新活动预告">
+                        </div>
+                        <div class="news-info">
+                            <h3>【限时活动】五一庆典开启：豪礼相送，更有绝版武将掉落</h3>
+                            <p>五一劳动节期间，全服玩家参与活动即可领取大量元宝、将魂及限定皮肤。活动期间，副本掉落率提升200%！</p>
+                            <span class="news-date">2023-10-24</span>
+                        </div>
+                    </div>
+                    <aside class="news-sidebar">
+                        <h4>热门资讯</h4>
+                        <div class="news-list-item">
+                            <a href="#">新版本“赤壁之战”即将上线，玩法全面革新</a>
+                            <span>10-22</span>
+                        </div>
+                        <div class="news-list-item">
+                            <a href="#">武将调整公告：优化部分高阶武将平衡性</a>
+                            <span>10-20</span>
+                        </div>
+                        <div class="news-list-item">
+                            <a href="#">【攻略】平民玩家如何快速通关第七章</a>
+                            <span>10-18</span>
+                        </div>
+                        <div class="news-list-item">
+                            <a href="#">关于优化游戏体验的温馨提示</a>
+                            <span>10-15</span>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="download-section">
+            <div class="container">
+                <div class="download-text">
+                    <h3>即刻下载，开启乱世征程</h3>
+                    <p>支持安卓/iOS双平台，随时随地畅玩策略大作</p>
+                </div>
+                <div class="qr-box">
+                    <img src="https://picsum.photos/seed/qr_code/200/200.jpg?grayscale" alt="下载二维码">
+                </div>
+                <div style="margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="alert('正在跳转至下载页面...')">立即下载客户端</button>
+                </div>
+                <p style="margin-top: 15px; font-size: 12px; color: #666;">请确保您的设备已开启“允许安装未知来源应用”权限。</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="color: #666; font-size: 14px; line-height: 1.8;">
+                        《妖姬三国》致力于为玩家打造一个沉浸式的三国策略世界。我们尊重历史，又不拘泥于史实，通过精美的画面与深度的玩法，重现那段波澜壮阔的岁月。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">新手指南</a></li>
+                        <li><a href="#">武将图鉴</a></li>
+                        <li><a href="#">阵型搭配</a></li>
+                        <li><a href="#">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li><a href="#">官方客服</a></li>
+                        <li><a href="#">玩家论坛</a></li>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">举报中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">Bilibili</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 妖姬三国 All Rights Reserved. 本游戏适合16岁以上用户。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
