@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名城卡盟-全网虚拟商品聚合交易与充值服务平台</title>
+    <meta name="description" content="名城卡盟提供安全、快捷、低价的虚拟商品交易服务，涵盖游戏点卡、话费充值、直播会员、软件激活码及云服务代购，支持支付宝与微信支付，24小时自动发货。">
+    <meta name="keywords" content="名城卡盟,游戏点卡,话费充值,直播会员,软件激活码,云服务器,自动发货">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary-color: #f59e0b;
+            --text-main: #1f2937;
+            --text-light: #6b7280;
+            --bg-body: #f3f4f6;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --max-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 16px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-login {
+            padding: 8px 20px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: var(--border-radius);
+            font-weight: 600;
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-register {
+            padding: 8px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+        }
+
+        .btn-register:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-box {
+            background: white;
+            padding: 8px;
+            border-radius: 50px;
+            display: inline-flex;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-box button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: #d97706;
+        }
+
+        /* Features */
+        .features {
+            padding: 40px 20px;
+            background: var(--bg-body);
+        }
+
+        .features-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: var(--max-width);
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 40px;
+        }
+
+        /* Category Grid */
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+        }
+
+        .category-item {
+            background: var(--bg-card);
+            padding: 20px 10px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .category-item:hover {
+            border-color: var(--primary-color);
+            background-color: #eff6ff;
+        }
+
+        .category-item img {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+
+        .category-item span {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Hot Products List */
+        .hot-products {
+            margin-top: 40px;
+        }
+
+        .product-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .product-item {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e5e7eb;
+        }
+
+        .product-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .product-icon {
+            width: 50px;
+            height: 50px;
+            background: #e0f2fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .product-details h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .product-details p {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .product-price {
+            text-align: right;
+        }
+
+        .price-tag {
+            display: block;
+            font-size: 20px;
+            color: #ef4444;
+            font-weight: 800;
+        }
+
+        .price-tag small {
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .btn-buy {
+            display: inline-block;
+            margin-top: 5px;
+            padding: 6px 15px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-widget {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-widget h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 10px;
+        }
+
+        .news-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 14px;
+        }
+
+        .news-list li:last-child {
+            border-bottom: none;
+        }
+
+        .news-list a {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .news-date {
+            color: var(--text-light);
+            font-size: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: #d1d5db;
+            margin-top: auto;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                height: auto;
+                padding: 15px;
+                flex-wrap: wrap;
+            }
+
+            nav {
+                display: none; /* Simplified for mobile */
+            }
+            
+            nav.mobile-open {
+                display: block;
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            nav.mobile-open ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .product-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .product-price {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                <span>名城卡盟</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">游戏点卡</a></li>
+                    <li><a href="#">手机充值</a></li>
+                    <li><a href="#">直播会员</a></li>
+                    <li><a href="#">云服务</a></li>
+                    <li><a href="#">软件激活</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="btn-login">登录</a>
+                <a href="#" class="btn-register">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>全网虚拟商品聚合交易</h1>
+            <p>提供安全、稳定、低价的各类虚拟充值服务，支持自动发货，秒到账，无任何风险。</p>
+            <div class="search-box">
+                <input type="text" placeholder="搜索游戏、话费、会员等商品...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>安全支付</h3>
+                <p>支持支付宝、微信支付，平台担保交易，资金安全有保障。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>自动发货</h3>
+                <p>下单后系统自动发货，无需人工干预，全天候 7x24 小时服务。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>价格优惠</h3>
+                <p>聚合全网最低价，量大从优，长期合作享受更多返利。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>客服支持</h3>
+                <p>专业客服团队在线答疑，解决充值与使用过程中的所有问题。</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-container">
+        <section class="content-area">
+            <div class="section-title">
+                <h2>热门分类</h2>
+                <a href="#" style="font-size: 14px; color: var(--primary-color);">查看全部 &gt;</a>
+            </div>
+            <div class="category-grid">
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/game/100/100" alt="游戏点卡">
+                    <span>游戏点卡</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/phone/100/100" alt="手机话费">
+                    <span>手机话费</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/tv/100/100" alt="视频会员">
+                    <span>视频会员</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/music/100/100" alt="音乐会员">
+                    <span>音乐会员</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/soft/100/100" alt="软件激活">
+                    <span>软件激活</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/cloud/100/100" alt="云服务器">
+                    <span>云服务器</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/steam/100/100" alt="Steam充值">
+                    <span>Steam充值</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/it/100/100" alt="IT服务">
+                    <span>IT服务</span>
+                </div>
+            </div>
+
+            <div class="hot-products">
+                <div class="section-title">
+                    <h2>限时特惠</h2>
+                </div>
+                <div class="product-list">
+                    <article class="product-item">
+                        <div class="product-info">
+                            <div class="product-icon">🎮</div>
+                            <div class="product-details">
+                                <h4>腾讯游戏 Q币充值 (10元)</h4>
+                                <p>自动发货 | 24小时在线</p>
+                            </div>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-tag">¥9.8<small> (98折)</small></span>
+                            <a href="#" class="btn-buy">立即购买</a>
+                        </div>
+                    </article>
+
+                    <article class="product-item">
+                        <div class="product-info">
+                            <div class="product-icon">📱</div>
+                            <div class="product-details">
+                                <h4>中国移动话费充值 (50元)</h4>
+                                <p>全国通用 | 实时到账</p>
+                            </div>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-tag">¥49.5<small> (9.9折)</small></span>
+                            <a href="#" class="btn-buy">立即购买</a>
+                        </div>
+                    </article>
+
+                    <article class="product-item">
+                        <div class="product-info">
+                            <div class="product-icon">📺</div>
+                            <div class="product-details">
+                                <h4>爱奇艺黄金会员 (月卡)</h4>
+                                <p>自动激活 | 通用账号</p>
+                            </div>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-tag">¥18.9<small> (原价25)</small></span>
+                            <a href="#" class="btn-buy">立即购买</a>
+                        </div>
+                    </article>
+
+                    <article class="product-item">
+                        <div class="product-info">
+                            <div class="product-icon">☁️</div>
+                            <div class="product-details">
+                                <h4>阿里云服务器 ECS 1核2G</h4>
+                                <p>包年包月 | 稳定可靠</p>
+                            </div>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-tag">¥99<small>/年</small></span>
+                            <a href="#" class="btn-buy">立即购买</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3>公告通知</h3>
+                <ul class="news-list">
+                    <li><a href="#">[公告] 关于系统维护升级的通知</a></li>
+                    <li><a href="#">[优惠] 双十一活动提前预热开启</a></li>
+                    <li><a href="#">[安全] 请勿向个人账户转账</a></li>
+                    <li><a href="#">[帮助] 如何查询充值记录</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>常见问题</h3>
+                <ul class="news-list">
+                    <li><a href="#">充值后未到账怎么办？</a></li>
+                    <li><a href="#">支持哪些支付方式？</a></li>
+                    <li><a href="#">如何申请退款？</a></li>
+                    <li><a href="#">自动发货规则说明</a></li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <p style="font-size: 14px; color: #9ca3af; line-height: 1.8;">
+                    名城卡盟致力于为用户提供最优质的虚拟商品交易服务，汇聚全网资源，打造安全、便捷的数字生活服务平台。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">新手指南</a></li>
+                    <li><a href="#">充值帮助</a></li>
+                    <li><a href="#">代理加盟</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>客服QQ: 88888888</li>
+                    <li>客服微信: mingcheng888</li>
+                    <li>工作时间: 9:00 - 22:00</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 名城卡盟 版权所有 | 虚拟商品交易服务平台</p>
+        </div>
+    </footer>
+
+</body>
+  </html>
