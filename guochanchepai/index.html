@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2024国产车排行榜最新数据，涵盖比亚迪、吉利、长城、奇瑞等主流品牌销量排名。提供购车指南、车型推荐及新能源车市场分析，助您选择高性价比国产好车。">
+    <meta name="keywords" content="国产车排行榜,2024年国产车销量榜,新能源车排名,国产车推荐,比亚迪销量">
+    <title>国产车排行榜-2024最新销量榜单与购车指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e60012; /* 国产红 */
+            --primary-hover: #b3000f;
+            --secondary-color: #1a1a1a;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f5f5f7;
+            --bg-card: #ffffff;
+            --border-color: #e5e5e5;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部 */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--text-main);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #e60012 0%, #ff4d4d 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 核心数据概览 */
+        .stats-bar {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* 排行榜列表 */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .section-desc {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .rank-table {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .rank-row {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.2s;
+        }
+
+        .rank-row:last-child {
+            border-bottom: none;
+        }
+
+        .rank-row:hover {
+            background-color: #fafafa;
+        }
+
+        .rank-num {
+            width: 60px;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .rank-row:nth-child(1) .rank-num { color: #ffd700; }
+        .rank-row:nth-child(2) .rank-num { color: #c0c0c0; }
+        .rank-row:nth-child(3) .rank-num { color: #cd7f32; }
+
+        .car-info {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .car-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #eee;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .car-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .car-brand {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .car-stats {
+            width: 150px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .car-stats strong {
+            color: var(--text-main);
+            display: block;
+            font-size: 16px;
+        }
+
+        .car-tags {
+            width: 120px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        .tag.hot { background-color: #fff0f0; color: var(--primary-color); }
+        .tag.new { background-color: #e6f7ff; color: #1890ff; }
+        .tag.ev { background-color: #f6ffed; color: #52c41a; }
+
+        .car-action {
+            width: 100px;
+            text-align: right;
+        }
+
+        .btn-link {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        /* 热门品牌 */
+        .brands-section {
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .brand-card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+        }
+
+        .brand-logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .brand-name {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .brand-count {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* 购车指南/FAQ */
+        .guide-section {
+            background-color: #fff;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .guide-item h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--secondary-color);
+        }
+
+        .guide-list li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .guide-list li::before {
+            content: '•';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--secondary-color);
+            color: #999;
+            padding: 60px 0 30px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 10px;
+            }
+            
+            nav ul {
+                display: none; /* 移动端简化，实际项目可用汉堡菜单 */
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .rank-row {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .car-info, .car-stats, .car-tags, .car-action {
+                width: 100%;
+                text-align: left;
+                justify-content: space-between;
+            }
+
+            .car-stats {
+                margin-top: 5px;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">排行榜<span>网</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">国产车</a></li>
+                    <li><a href="#">新能源</a></li>
+                    <li><a href="#">SUV推荐</a></li>
+                    <li><a href="#">轿车推荐</a></li>
+                    <li><a href="#">购车指南</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn" aria-label="搜索">🔍</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>国产车排行榜</h1>
+                <p>2024年最新月度销量数据，深度解析比亚迪、吉利、长城等国产车企市场表现</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <!-- 核心数据 -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">45.3%</span>
+                    <span class="stat-label">国产车市场占有率</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Top 3</span>
+                    <span class="stat-label">比亚迪稳居榜首</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1,200+</span>
+                    <span class="stat-label">上榜车型总数</span>
+                </div>
+            </div>
+
+            <!-- 2024年1-10月综合销量榜 -->
+            <section class="section-header">
+                <h2 class="section-title">2024年1-10月综合销量榜</h2>
+                <span class="section-desc">数据来源：乘联会/中汽协（统计口径：狭义乘用车零售销量）</span>
+            </section>
+
+            <div class="rank-table">
+                <div class="rank-row">
+                    <div class="rank-num">1</div>
+                    <div class="car-info">
+                        <img src="https://picsum.photos/seed/byd1/100/100" alt="比亚迪" class="car-icon">
+                        <div>
+                            <div class="car-name">比亚迪王朝/海洋系列</div>
+                            <div class="car-brand">比亚迪汽车</div>
+                        </div>
+                    </div>
+                    <div class="car-stats">
+                        <strong>312,500 辆</strong>
+                        <span>环比增长 4.2%</span>
+                    </div>
+                    <div class="car-tags">
+                        <span class="tag hot">销量冠军</span>
+                        <span class="tag ev">新能源</span>
+                    </div>
+                    <div class="car-action">
+                        <a href="#" class="btn-link">查看详情 &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="rank-row">
+                    <div class="rank-num">2</div>
+                    <div class="car-info">
+                        <img src="https://picsum.photos/seed/long1/100/100" alt="星越L" class="car-icon">
+                        <div>
+                            <div class="car-name">星越L / 博越L</div>
+                            <div class="car-brand">吉利汽车</div>
+                        </div>
+                    </div>
+                    <div class="car-stats">
+                        <strong>78,900 辆</strong>
+                        <span>环比增长 1.5%</span>
+                    </div>
+                    <div class="car-tags">
+                        <span class="tag new">爆款SUV</span>
+                    </div>
+                    <div class="car-action">
+                        <a href="#" class="btn-link">查看详情 &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="rank-row">
+                    <div class="rank-num">3</div>
+                    <div class="car-info">
+                        <img src="https://picsum.photos/seed/haval1/100/100" alt="哈弗" class="car-icon">
+                        <div>
+                            <div class="car-name">哈弗H6 / H9</div>
+                            <div class="car-brand">长城汽车</div>
+                        </div>
+                    </div>
+                    <div class="car-stats">
+                        <strong>65,400 辆</strong>
+                        <span>环比持平</span>
+                    </div>
+                    <div class="car-tags">
+                        <span class="tag hot">国民SUV</span>
+                        <span class="tag">燃油/混动</span>
+                    </div>
+                    <div class="car-action">
+                        <a href="#" class="btn-link">查看详情 &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="rank-row">
+                    <div class="rank-num">4</div>
+                    <div class="car-info">
+                        <img src="https://picsum.photos/seed/chery1/100/100" alt="瑞虎8" class="car-icon">
+                        <div>
+                            <div class="car-name">瑞虎8 系列</div>
+                            <div class="car-brand">奇瑞汽车</div>
+                        </div>
+                    </div>
+                    <div class="car-stats">
+                        <strong>58,200 辆</strong>
+                        <span>环比增长 2.1%</span>
+                    </div>
+                    <div class="car-tags">
+                        <span class="tag">SUV</span>
+                    </div>
+                    <div class="car-action">
+                        <a href="#" class="btn-link">查看详情 &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="rank-row">
+                    <div class="rank-num">5</div>
+                    <div class="car-info">
+                        <img src="https://picsum.photos/seed/geely1/100/100" alt="银河" class="car-icon">
+                        <div>
+                            <div class="car-name">银河 L7 / E8</div>
+                            <div class="car-brand">吉利汽车</div>
+                        </div>
+                    </div>
+                    <div class="car-stats">
+                        <strong>52,100 辆</strong>
+                        <span>环比增长 8.5%</span>
+                    </div>
+                    <div class="car-tags">
+                        <span class="tag ev">新能源</span>
+                    </div>
+                    <div class="car-action">
+                        <a href="#" class="btn-link">查看详情 &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="rank-row">
+                    <div class="rank-num">6</div>
+                    <div class="car-info">
+                        <img src="https://picsum.photos/seed/gac1/100/100" alt="传祺" class="car-icon">
+                        <div>
+                            <div class="car-name">传祺 GS8</div>
+                            <div class="car-brand">广汽传祺</div>
+                        </div>
+                    </div>
+                    <div class="car-stats">
+                        <strong>48,600 辆</strong>
+                        <span>环比增长 3.2%</span>
+                    </div>
+                    <div class="car-tags">
+                        <span class="tag new">旗舰SUV</span>
+                    </div>
+                    <div class="car-action">
+                        <a href="#" class="btn-link">查看详情 &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 热门品牌矩阵 -->
+            <section class="brands-section">
+                <div class="section-header">
+                    <h2 class="section-title">热门国产品牌矩阵</h2>
+                </div>
+                <div class="brand-grid">
+                    <div class="brand-card">
+                        <img src="https://picsum.photos/seed/b1/100/100" alt="比亚迪" class="brand-logo">
+                        <div class="brand-name">比亚迪</div>
+                        <div class="brand-count">13款在售车型</div>
+                    </div>
+                    <div class="brand-card">
+                        <img src="https://picsum.photos/seed/g1/100/100" alt="吉利" class="brand-logo">
+                        <div class="brand-name">吉利</div>
+                        <div class="brand-count">19款在售车型</div>
+                    </div>
+                    <div class="brand-card">
+                        <img src="https://picsum.photos/seed/c1/100/100" alt="长安" class="brand-logo">
+                        <div class="brand-name">长安汽车</div>
+                        <div class="brand-count">15款在售车型</div>
+                    </div>
+                    <div class="brand-card">
+                        <img src="https://picsum.photos/seed/s1/100/100" alt="奇瑞" class="brand-logo">
+                        <div class="brand-name">奇瑞控股</div>
+                        <div class="brand-count">12款在售车型</div>
+                    </div>
+                    <div class="brand-card">
+                        <img src="https://picsum.photos/seed/h1/100/100" alt="长城" class="brand-logo">
+                        <div class="brand-name">长城汽车</div>
+                        <div class="brand-count">8款在售车型</div>
+                    </div>
+                    <div class="brand-card">
+                        <img src="https://picsum.photos/seed/a1/100/100" alt="广汽" class="brand-logo">
+                        <div class="brand-name">广汽集团</div>
+                        <div class="brand-count">20款在售车型</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 购车指南与常见问题 -->
+            <section class="guide-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">购车指南与常见问题</h2>
+                    </div>
+                    <div class="guide-grid">
+                        <div class="guide-col">
+                            <h3>如何选择国产车？</h3>
+                            <ul class="guide-list">
+                                <li><strong>关注动力类型：</strong>新能源车（纯电/插混）目前补贴政策较好，且用车成本低；传统燃油车保值率相对稳定。</li>
+                                <li><strong>看销量与口碑：</strong>参考排行榜数据，销量高的车型通常在品控和售后服务网络覆盖上更有保障。</li>
+                                <li><strong>试驾体验：</strong>国产车内饰智能化程度高，建议重点体验车机流畅度、底盘滤震和隔音效果。</li>
+                                <li><strong>保值率参考：</strong>比亚迪、吉利等头部品牌保值率优于二三线品牌，但建议以三年保值率为参考。</li>
+                            </ul>
+                        </div>
+                        <div class="faq-col">
+                            <div class="faq-item">
+                                <div class="faq-question">国产车质量真的差吗？</div>
+                                <div class="faq-answer">随着技术升级和供应链整合，国产车在三大件（发动机、变速箱、底盘）及智能化配置上已大幅提升，故障率与合资品牌差距缩小。</div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">新能源车值得买吗？</div>
+                                <div class="faq-answer">如果拥有充电条件且主要在城市通勤，新能源车是极佳选择，用车成本极低。长途出行可考虑插电混动（PHEV）车型。</div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">2024年国产车竞争格局如何？</div>
+                                <div class="faq-answer">市场呈现“强者恒强”态势，比亚迪一家独大，吉利、长安、奇瑞紧随其后，新能源赛道竞争尤为激烈。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>排行榜网</h4>
+                    <p style="font-size: 14px; line-height: 1.8; color: #666;">
+                        专注提供各类权威榜单数据与行业分析。我们致力于为用户提供客观、准确的资讯服务，助您在消费决策时更加明智。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>榜单分类</h4>
+                    <ul>
+                        <li><a href="#">国产车排行榜</a></li>
+                        <li><a href="#">新能源汽车销量榜</a></li>
+                        <li><a href="#">SUV推荐榜单</a></li>
+                        <li><a href="#">中大型轿车排行</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务支持</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">数据说明</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">今日头条</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 国产车排行榜网 版权所有 | 数据仅供参考，具体以官方发布为准</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
